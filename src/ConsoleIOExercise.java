@@ -14,14 +14,14 @@ public class ConsoleIOExercise {
         Double roomLength;
         Double roomWidth;
         Double roomHeight;
-        boolean newRoom = false;
+        boolean newRoom;
         String userAnswer;
 
         System.out.print("Enter your favorite integer: ");
         userInt = sc.nextInt();
         System.out.println("You entered: " + userInt);
 
-        //Captures the rest of the line after the integer
+        //Captures the rest of the line after the integer to prevent skipping next input
         sc.nextLine();
 
         System.out.print("Enter your favorite quote: ");
@@ -62,6 +62,6 @@ public class ConsoleIOExercise {
                     newRoom = false;
                 }
             } while (!userAnswer.equals("yes") && !userAnswer.equals("no"));
-        } while (newRoom == true);
+        } while (newRoom);
     }
 }
