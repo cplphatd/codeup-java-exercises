@@ -32,7 +32,7 @@ public class ControlStatementsLoops {
             i += 1;
         }
 
-        System.out.println();
+        System.out.println("---");
         //Create a do-while loop that will count by 2's starting with 0 and ending at 100.
         // Follow each number with a new line.
 
@@ -48,7 +48,7 @@ public class ControlStatementsLoops {
             k -= 5;
         } while (k >= -10);
 
-        System.out.println();
+        System.out.println("---");
         //Create a do-while loop that starts at 2, and displays the number squared on each line
         // while the number is less than 1,000,000.
 
@@ -64,30 +64,30 @@ public class ControlStatementsLoops {
             System.out.println(m);
         }
 
-        System.out.println();
+        System.out.println("---");
         for (n = 2; n < 1000000; n *= n) {
             System.out.println(n);
         }
 
-        System.out.println();
+        System.out.println("---");
         //Write a program that prints the numbers from 1 to 100.
         //For multiples of three print “Fizz” instead of the number
         //For the multiples of five print “Buzz”.
         //For numbers which are multiples of both three and five print “FizzBuzz”.
 
         for (o = 1; o <= 100; o += 1) {
-            if (o % 3 == 0 && o % 5 > 0) {
-                System.out.println("Fizz");
-            } else if (o % 5 == 0 && o % 3 > 0) {
-                System.out.println("Buzz");
-            } else if (o % 3 == 0 && o % 5 == 0) {
+            if (o % 3 == 0 && o % 5 == 0) {
                 System.out.println("FizzBuzz");
+            } else if (o % 5 == 0) {
+                System.out.println("Buzz");
+            } else if (o % 3 == 0) {
+                System.out.println("Fizz");
             }else {
                 System.out.println(o);
             }
         }
 
-        System.out.println();
+        System.out.println("---");
         //Prompt the user to enter an integer.
         //Display a table of squares and cubes from 1 to the value entered.
         //Ask if the user wants to continue.
@@ -99,10 +99,11 @@ public class ControlStatementsLoops {
             userInt = sc.nextInt();
 
             for (p = 1; p <= userInt; p += 1) {
-                System.out.println(p + ": " + p + "^2 = " + (p * p) + " " + p + "^3 = " + (p * p * p));
+                System.out.printf("%1s %12s %12s", p + ": ", p + "^2 = " + (p * p), p + "^3 = " + (p * p * p));
+                System.out.println();
             }
 
-            System.out.println();
+            System.out.println("---");
 
             do {
                 System.out.print("Would you like to enter another integer? (yes/no): ");
@@ -112,10 +113,10 @@ public class ControlStatementsLoops {
                 } else {
                     anotherNumber = false;
                 }
-            } while (!userAnswer.equals("yes") && !userAnswer.equals("no"));
+            } while (!userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("no"));
         } while (anotherNumber);
 
-        System.out.println();
+        System.out.println("---");
         //Accept a numerical grade from 0 to 100.
         //Display the corresponding letter grade.
         // Prompt the user to continue.
@@ -161,9 +162,7 @@ public class ControlStatementsLoops {
             do {
                 System.out.print("Would you like to enter another grade? (yes/no): ");
                 userAnswer = sc.next();
-            } while (!userAnswer.equals("yes") && !userAnswer.equals("no"));
-        } while (userAnswer.equals("yes"));
-
-
+            } while (!userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("no"));
+        } while (userAnswer.equalsIgnoreCase("yes"));
     }
 }
