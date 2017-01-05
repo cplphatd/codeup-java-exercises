@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class MethodsExercise {
     public static void main(String[] args) {
         //Variables
-        int firstUserNumber;
-        int secondUserNumber;
+        double firstUserNumber;
+        double secondUserNumber;
         String userOperation;
         boolean repeat = false;
         String userAnswer;
@@ -19,10 +19,10 @@ public class MethodsExercise {
         do {
             System.out.println("--ONLY NUMBERS 1-59 ARE VALID FOR FACTORIAL--");
             System.out.print("Please enter the first number or the number you would like to factorial: ");
-            firstUserNumber = sc.nextInt();
+            firstUserNumber = sc.nextDouble();
 
             System.out.print("Please enter the second number (enter any number if performing factorial): ");
-            secondUserNumber = sc.nextInt();
+            secondUserNumber = sc.nextDouble();
 
             //Continues to ask for operation until user enters appropriate symbol
             do {
@@ -43,12 +43,17 @@ public class MethodsExercise {
                     System.out.println(firstUserNumber + " " + userOperation + " " + secondUserNumber + " = " + multiplyNumbers(firstUserNumber, secondUserNumber));
                     break;
                 case "/":
-                    System.out.println(firstUserNumber + " " + userOperation + " " + secondUserNumber + " = " + divideNumbers(firstUserNumber, secondUserNumber));
+                    if (secondUserNumber == 0) {
+                        System.out.println("Cannot divide by zero.");
+                    } else {
+                        System.out.println(firstUserNumber + " " + userOperation + " " + secondUserNumber + " = " + divideNumbers(firstUserNumber, secondUserNumber));
+                    }
                     break;
                 case "%":
                     System.out.println(firstUserNumber + " " + userOperation + " " + secondUserNumber + " = " + modulusNumbers(firstUserNumber, secondUserNumber));
                     break;
                 case "!":
+                    //Checks if valid value for factorial is used
                     if (firstUserNumber > 0 && firstUserNumber <= 59) {
                         System.out.println(firstUserNumber + " " + userOperation + " = " + factorialNumber(firstUserNumber, secondUserNumber));
                     } else {
@@ -59,6 +64,7 @@ public class MethodsExercise {
                     System.out.println("Error. Try again.");
             }
 
+            //Continues until user enters y or n
             do {
                 System.out.println("Would you like to perform another calculation? (y/n)");
                 userAnswer = sc.next();
@@ -71,27 +77,27 @@ public class MethodsExercise {
         } while (repeat);
     }
 
-    public static int addNumbers (int firstNumber, int secondNumber) {
+    public static double addNumbers (double firstNumber, double secondNumber) {
         return firstNumber + secondNumber;
     }
 
-    public static int subtractNumbers (int firstNumber, int secondNumber) {
+    public static double subtractNumbers (double firstNumber, double secondNumber) {
         return firstNumber - secondNumber;
     }
 
-    public static int multiplyNumbers (int firstNumber, int secondNumber) {
+    public static double multiplyNumbers (double firstNumber, double secondNumber) {
         return firstNumber * secondNumber;
     }
 
-    public static int divideNumbers (int firstNumber, int secondNumber) {
+    public static double divideNumbers (double firstNumber, double secondNumber) {
         return firstNumber / secondNumber;
     }
 
-    public static int modulusNumbers (int firstNumber, int secondNumber) {
+    public static double modulusNumbers (double firstNumber, double secondNumber) {
         return firstNumber % secondNumber;
     }
 
-    public static long factorialNumber (int firstNumber, int secondNumber) {
+    public static long factorialNumber (double firstNumber, double secondNumber) {
         long factorial = 1;
         secondNumber = firstNumber;
 
