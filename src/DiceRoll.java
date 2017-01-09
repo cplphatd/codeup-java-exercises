@@ -54,6 +54,7 @@ public class DiceRoll {
     }
 
     public static int getSides (Scanner anyScanner) {
+
         return anyScanner.nextInt();
     }
 

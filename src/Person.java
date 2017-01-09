@@ -1,0 +1,14 @@
+/**
+ * Created by David on 1/8/17.
+ */
+public class Person {
+    String userfirstName;
+    String userlastName;
+    String userEmail;
+
+    public Person (String firstName, String lastName, String email) {
+        this.userfirstName = firstName;
+        this.userlastName = lastName;
+        this.userEmail = email;
+    }
+}
