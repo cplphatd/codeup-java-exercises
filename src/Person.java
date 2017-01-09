@@ -6,9 +6,9 @@ public class Person {
     String userlastName;
     String userEmail;
 
-    public Person (String firstName, String lastName, String email) {
-        this.userfirstName = firstName;
-        this.userlastName = lastName;
-        this.userEmail = email;
+    public Person (String userfirstName, String userlastName, String userEmail) {
+        this.userfirstName = userfirstName;
+        this.userlastName = userlastName;
+        this.userEmail = userEmail;
     }
 }

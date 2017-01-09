@@ -7,15 +7,16 @@ public class Dice {
     //Variables
     int numberOfSides;
 
-    public Dice (int sides) {
-        this.numberOfSides = sides;
+    //Only constructor name should be capitalized
+    public Dice (int numberOfSides) {
+        this.numberOfSides = numberOfSides;
     }
 
-    public static int rollDice (int sides) {
+    public int rollDice () {
         //Initialize randomizer
         Random rand = new Random();
 
-        //.nextInt is inclusive of zero, so the upper bound must have 1 subtracted, then the random number must have 1 added
-        return rand.nextInt(sides - 1) + 1;
+        //.nextInt is inclusive of zero and exclusive of the max, so  the random number must have 1 added
+        return rand.nextInt(numberOfSides) + 1;
     }
 }

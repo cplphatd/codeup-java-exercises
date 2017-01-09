@@ -4,9 +4,11 @@
 public class Circle {
     //Variables
     double userRadius;
+    public static int circleCounter = 0;
 
-    public Circle (double radius) {
-        this.userRadius = radius;
+    public Circle (double userRadius) {
+        this.userRadius = userRadius;
+        circleCounter += 1;
     }
 
     public double getCircumference () {
@@ -35,7 +37,8 @@ public class Circle {
         return stringX.substring(0, stringX.indexOf(".") + 3);
     }
 
-    public static int getObjectCount (int anyCounter) {
-        return anyCounter;
+    public static int getObjectCount () {
+        return
+                circleCounter;
     }
 }

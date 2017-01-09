@@ -8,7 +8,7 @@ public class DiceRollingApp {
         //Variables
         boolean repeat = false;
         String userAnswer;
-        int sides;
+        int numberOfSides;
 
         //Initialize scanner
         Scanner sc = new Scanner(System.in);
@@ -17,13 +17,13 @@ public class DiceRollingApp {
             //Will not continue until user enters side value that is >1
             do {
                 System.out.print("Enter the number of sides on the dice (>1): ");
-                sides = sc.nextInt();
-            } while (sides <= 1);
+                numberOfSides = sc.nextInt();
+            } while (numberOfSides <= 1);
 
-            Dice dieOne = new Dice(sides);
-            Dice dieTwo = new Dice(sides);
+            Dice dieOne = new Dice(numberOfSides);
+            Dice dieTwo = new Dice(numberOfSides);
 
-            System.out.println("You rolled " + dieOne.rollDice(sides) + " and " + dieTwo.rollDice(sides) + "!");
+            System.out.println("You rolled " + dieOne.rollDice() + " and " + dieTwo.rollDice() + "!");
 
             do {
                 System.out.print("Would you like to roll the dice again? (y/n) ");

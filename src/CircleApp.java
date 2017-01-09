@@ -9,13 +9,11 @@ public class CircleApp {
         boolean repeat = false;
         String userAnswer;
         double userRadius;
-        int circleCounter = 0;
 
         //Initialize scanner
         Scanner sc = new Scanner(System.in);
 
         do {
-            circleCounter += 1;
             do {
                 System.out.print("Enter the radius (in): ");
                 userRadius = sc.nextDouble();
@@ -44,7 +42,7 @@ public class CircleApp {
                     repeat = true;
                 } else if (userAnswer.equalsIgnoreCase("n") || userAnswer.equalsIgnoreCase("no")){
                     repeat = false;
-                    System.out.println("Thanks for using the Circle App! Circles calculated: " + userCircle.getObjectCount(circleCounter));
+                    System.out.println("Thanks for using the Circle App! Circles calculated: " + userCircle.getObjectCount());
                 } else {
                     repeat = false;
                 }
