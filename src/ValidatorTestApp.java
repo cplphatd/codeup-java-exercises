@@ -36,7 +36,7 @@ public class ValidatorTestApp {
             System.out.println("---");
 
             userString = validator.getRequiredString("Please enter your favorite quote: ");
-            System.out.println("\"" + userString + "\"");
+            System.out.println("\"" + userString + "\" - You");
             System.out.println("---");
 
             userAnswer = validator.getChoiceString("Would you like to validate again? (y/n): ", "y", "n");

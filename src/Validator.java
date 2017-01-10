@@ -6,7 +6,6 @@ import java.util.Scanner;
  * Created by David on 1/10/17.
  */
 public class Validator {
-    //Variables
 
     //Declare scanner
     Scanner sc;
@@ -21,15 +20,9 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userInt = sc.nextInt();
-
-            //Consumes "/n"
-            sc.nextLine();
-        } catch (InputMismatchException e) {
-            //Prevents skipping next input after nextInt causing infinite loop
-            sc.nextLine();
-
-            System.out.println(e.getMessage());
+            userInt = Integer.parseInt(sc.nextLine());
+        } catch (InputMismatchException | NumberFormatException e) {
+            System.out.println("ERROR - Enter a number!");
             userInt = getInt(prompt);
         }
 
@@ -42,19 +35,16 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userInt = sc.nextInt();
-
-            //Consumes "/n"
-            sc.nextLine();
+            userInt = Integer.parseInt(sc.nextLine());
 
             if (userInt < min || userInt > max) {
-                throw new IllegalArgumentException("ERROR - Value outside of bounds!");
+                throw new IllegalArgumentException();
             }
         } catch (InputMismatchException | IllegalArgumentException e) {
             //Prevents skipping next input after nextInt causing infinite loop
-            sc.nextLine();
+//            sc.nextLine();
 
-            System.out.println(e.getMessage());
+            System.out.println("ERROR - Value outside of bounds!");
             userInt = getIntWithinRange(prompt, min, max);
         }
 
@@ -67,15 +57,9 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userDouble = sc.nextDouble();
-
-            //Consumes "/n"
-            sc.nextLine();
-        } catch (InputMismatchException e) {
-            //Prevents skipping next input after nextInt causing infinite loop
-            sc.nextLine();
-
-            System.out.println(e.getMessage());
+            userDouble = Double.parseDouble(sc.nextLine());
+        } catch (InputMismatchException | NumberFormatException e) {
+            System.out.println("ERROR - Enter a valid number");
             userDouble = getDouble(prompt);
         }
 
@@ -88,19 +72,13 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userDouble = sc.nextDouble();
-
-            //Consumes "/n"
-            sc.nextLine();
+            userDouble = Double.parseDouble(sc.nextLine());
 
             if (userDouble < min || userDouble > max) {
-                throw new IllegalArgumentException("ERROR - Value outside of bounds!");
+                throw new IllegalArgumentException();
             }
         } catch (InputMismatchException | IllegalArgumentException e) {
-            //Prevents skipping next input after nextInt causing infinite loop
-            sc.nextLine();
-
-            System.out.println(e.getMessage());
+            System.out.println("ERROR - Value outside of bounds!");
             userDouble = getDoubleWithinRange(prompt, min, max);
         }
 
@@ -132,10 +110,7 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userString = sc.next();
-
-            //Consumes "/n"
-            sc.nextLine();
+            userString = sc.nextLine();
 
             if (!userString.equalsIgnoreCase(choiceOne) && !userString.equalsIgnoreCase(choiceTwo)) {
                 throw new IllegalArgumentException("ERROR - Enter a valid choice!");
