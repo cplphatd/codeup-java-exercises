@@ -11,7 +11,7 @@ public class ExceptionDemo {
         String studentFirstName;
         String studentLastName;
         int studentAge;
-        boolean repeat = false;
+        boolean repeat;
 
         //Initialize scanner
         Scanner sc = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class ExceptionDemo {
     }
 
     public static String getStudentFirstName (Scanner sc) {
-        String studentFirstName = "null";
+        String studentFirstName;
 
         System.out.print("Enter the student's first name: ");
 
@@ -55,7 +55,7 @@ public class ExceptionDemo {
     }
 
     public static String getStudentLastName (Scanner sc) {
-        String studentLastName = "null";
+        String studentLastName;
 
         System.out.print("Enter the student's last name: ");
 
@@ -76,7 +76,7 @@ public class ExceptionDemo {
     }
 
     public static int getStudentAge (Scanner sc) {
-        int studentAge = 0;
+        int studentAge;
 
         System.out.print("Enter the student's age: ");
 
@@ -110,6 +110,8 @@ public class ExceptionDemo {
         do {
             System.out.print("Enter another student? (y/n): ");
             userAnswer = sc.next();
+
+            //Prevents skipping next input when entering another student
             sc.nextLine();
 
             if (userAnswer.equalsIgnoreCase("y") || userAnswer.equalsIgnoreCase("yes")) {
