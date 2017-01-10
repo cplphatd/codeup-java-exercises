@@ -22,7 +22,13 @@ public class Validator {
 
         try {
             userInt = sc.nextInt();
+
+            //Consumes "/n"
+            sc.nextLine();
         } catch (InputMismatchException e) {
+            //Prevents skipping next input after nextInt causing infinite loop
+            sc.nextLine();
+
             System.out.println(e.getMessage());
             userInt = getInt(prompt);
         }
@@ -38,10 +44,16 @@ public class Validator {
         try {
             userInt = sc.nextInt();
 
+            //Consumes "/n"
+            sc.nextLine();
+
             if (userInt < min || userInt > max) {
                 throw new IllegalArgumentException("ERROR - Value outside of bounds!");
             }
         } catch (InputMismatchException | IllegalArgumentException e) {
+            //Prevents skipping next input after nextInt causing infinite loop
+            sc.nextLine();
+
             System.out.println(e.getMessage());
             userInt = getIntWithinRange(prompt, min, max);
         }
@@ -56,7 +68,13 @@ public class Validator {
 
         try {
             userDouble = sc.nextDouble();
+
+            //Consumes "/n"
+            sc.nextLine();
         } catch (InputMismatchException e) {
+            //Prevents skipping next input after nextInt causing infinite loop
+            sc.nextLine();
+
             System.out.println(e.getMessage());
             userDouble = getDouble(prompt);
         }
@@ -72,10 +90,16 @@ public class Validator {
         try {
             userDouble = sc.nextDouble();
 
+            //Consumes "/n"
+            sc.nextLine();
+
             if (userDouble < min || userDouble > max) {
                 throw new IllegalArgumentException("ERROR - Value outside of bounds!");
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | IllegalArgumentException e) {
+            //Prevents skipping next input after nextInt causing infinite loop
+            sc.nextLine();
+
             System.out.println(e.getMessage());
             userDouble = getDoubleWithinRange(prompt, min, max);
         }
@@ -89,10 +113,10 @@ public class Validator {
         System.out.print(prompt);
 
         try {
-            userString = sc.next();
+            userString = sc.nextLine();
 
-            if (userString.equals("/n") || userString.contains(" ")) {
-                throw new IllegalArgumentException("ERROR - No response or contains spaces!")
+            if (userString.isEmpty()) {
+                throw new IllegalArgumentException("ERROR - No response!");
             }
         } catch (NoSuchElementException | IllegalStateException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -109,6 +133,9 @@ public class Validator {
 
         try {
             userString = sc.next();
+
+            //Consumes "/n"
+            sc.nextLine();
 
             if (!userString.equalsIgnoreCase(choiceOne) && !userString.equalsIgnoreCase(choiceTwo)) {
                 throw new IllegalArgumentException("ERROR - Enter a valid choice!");
