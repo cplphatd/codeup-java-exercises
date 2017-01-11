@@ -15,7 +15,7 @@ public class ValidatorTestApp {
         //Initialize scanner
         Scanner sc = new Scanner(System.in);
 
-        //Intialize validator
+        //Initialize validator
         Validator validator = new Validator(sc);
 
         do {

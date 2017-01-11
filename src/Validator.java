@@ -5,6 +5,9 @@ import java.util.Scanner;
 /**
  * Created by David on 1/10/17.
  */
+//Static means using the method/property off of a class itself, not off of an object
+//Static methods can be used without an object being created
+
 public class Validator {
 
     //Declare scanner
@@ -20,8 +23,9 @@ public class Validator {
         System.out.print(prompt);
 
         try {
+            //Accepts string and then parses to int (avoids problems from switching from nextInt to nextLine)
             userInt = Integer.parseInt(sc.nextLine());
-        } catch (InputMismatchException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("ERROR - Enter a number!");
             userInt = getInt(prompt);
         }
@@ -40,10 +44,7 @@ public class Validator {
             if (userInt < min || userInt > max) {
                 throw new IllegalArgumentException();
             }
-        } catch (InputMismatchException | IllegalArgumentException e) {
-            //Prevents skipping next input after nextInt causing infinite loop
-//            sc.nextLine();
-
+        } catch (IllegalArgumentException e) {
             System.out.println("ERROR - Value outside of bounds!");
             userInt = getIntWithinRange(prompt, min, max);
         }
@@ -57,8 +58,9 @@ public class Validator {
         System.out.print(prompt);
 
         try {
+            //Accepts string and then parses to double (avoids problems from switching from nextDouble to nextLine)
             userDouble = Double.parseDouble(sc.nextLine());
-        } catch (InputMismatchException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("ERROR - Enter a valid number");
             userDouble = getDouble(prompt);
         }
@@ -77,7 +79,7 @@ public class Validator {
             if (userDouble < min || userDouble > max) {
                 throw new IllegalArgumentException();
             }
-        } catch (InputMismatchException | IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("ERROR - Value outside of bounds!");
             userDouble = getDoubleWithinRange(prompt, min, max);
         }
