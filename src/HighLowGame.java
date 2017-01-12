@@ -32,20 +32,22 @@ public class HighLowGame {
 
             //Get user guess and compare until correct number is guessed
             do {
-                System.out.println("You have " + maxGuess + " guesses left.");
+                System.out.println("Guesses left: " + maxGuess);
                 userGuess = validator.getIntWithinRange("Guess a number between 1 and 100: ", min, max);
                 result = highLow.compareGuessToAnswer(userGuess);
                 maxGuess -= 1;
             } while (!result && maxGuess > 0);
 
             //Tell user the number of guesses they took
-            if (maxGuess > 0) {
+            if (result) {
                 System.out.println("Number of guesses: " + highLow.getNumberOfGuesses());
             } else {
                 System.out.println("You ran out of guesses.");
+                System.out.println("The correct number was: " + highLow.getCurrentNumber());
             }
 
             //Ask user if they want to play again
+            System.out.println("---");
             userAnswer = validator.getChoiceString("Would you like to play again? (y/n): ", "y", "n");
             if (userAnswer.equalsIgnoreCase("y")) {
                 repeat = true;

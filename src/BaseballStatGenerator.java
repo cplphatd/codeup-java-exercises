@@ -38,10 +38,10 @@ public class BaseballStatGenerator {
     }
 
     public void printStatDisplayArray (String rowName, String columnOneName, String columnTwoName) {
-        System.out.println(rowName + ": " + columnOneName + "   " + columnTwoName);
+        System.out.println(rowName + ":  " + columnOneName + "   " + columnTwoName);
 
         for (int i = 0; i <= statDisplayArray.length - 1; i += 1) {
-            System.out.print("Player " + (i+1) + ": ");
+            System.out.print("Player " + (i+1) + ":  ");
             for (int j = 0; j <=statDisplayArray[i].length - 1; j += 1) {
                 System.out.printf("%.3f", statDisplayArray[i][j]);
                 System.out.print("  ");

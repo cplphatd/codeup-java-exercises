@@ -43,4 +43,8 @@ public class HighLow {
     public int getNumberOfGuesses() {
         return numberOfGuesses;
     }
+
+    public int getCurrentNumber() {
+        return currentNumber;
+    }
 }

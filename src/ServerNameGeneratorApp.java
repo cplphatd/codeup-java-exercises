@@ -7,7 +7,7 @@ public class ServerNameGeneratorApp {
     public static void main(String[] args) {
         //Variables
         String[] adjectives = {"Hairless", "Sadistic", "Sexy", "Violent", "Bearded", "Slimy", "Naked", "Drunken", "Vengeful", "Cowardly"};
-        String[] nouns = {"Idiot", "Legend", "Kitty", "Tank", "Pistol", "Dragon", "Sandwich", "Tiger", "Laser", "Smartphone"};
+        String[] nouns = {"Idiot", "Legend", "Kitty", "Tank", "Pistol", "Dragon", "Sandwich", "Tiger", "Laser", "Smartphone", "Sailor"};
         String userAnswer;
         boolean repeat;
         String serverName;

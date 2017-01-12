@@ -27,6 +27,7 @@ public class BaseballStatGeneratorApp {
             //Initialize stat generator
             BaseballStatGenerator statGenerator = new BaseballStatGenerator(numberOfPlayers, numberOfStats);
 
+            //Iterate through each player
             for (int i = 0; i <= numberOfPlayers - 1; i += 1) {
 
                 //Create an atBat array for the player
@@ -39,13 +40,14 @@ public class BaseballStatGeneratorApp {
                     storeAtBatResults(basesEarned, j, atBatArray);
                 }
 
-                //Calculate the batting and slugging percentage for the player and store in array
+                //Calculate the batting and slugging percentage for the player and store in multidimensional array
                 double battingAverage = statGenerator.calculateBattingAverage(atBatArray);
                 statGenerator.storeStat(battingAverage, i, 0);
                 double sluggingAverage = statGenerator.calculateSluggingAverage(atBatArray);
                 statGenerator.storeStat(sluggingAverage, i, 1);
             }
 
+            //Generate table
             System.out.println("---");
             statGenerator.printStatDisplayArray("Player #", "Bat%", "Slug%");
 
