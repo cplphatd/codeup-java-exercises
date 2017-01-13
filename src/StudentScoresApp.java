@@ -32,7 +32,7 @@ public class StudentScoresApp {
         do {
             studentFirstName = console.getRequiredString("Enter the student's first name: ");
             studentLastName = console.getRequiredString("Enter the student's last name: ");
-            studentScore = console.getInt("Enter the student's score: ");
+            studentScore = console.getIntWithinRange("Enter the student's score: ", 0, 100);
 
             studentsList.add(student = new Student(studentFirstName, studentLastName, studentScore));
 
