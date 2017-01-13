@@ -25,7 +25,7 @@ public class ExceptionDemo {
 
             Student studentInfo = new Student(studentFirstName, studentLastName, studentAge);
 
-            showLastEntry(studentInfo.getStudentFirstName(), studentInfo.getStudentLastName(), studentInfo.getStudentAge());
+//            showLastEntry(studentInfo.getStudentFirstName(), studentInfo.getStudentLastName());
 
             repeat = enterAnotherStudent(sc);
         } while (repeat);
