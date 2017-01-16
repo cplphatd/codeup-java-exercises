@@ -20,7 +20,7 @@ public class StudentScoresApp {
         Scanner scanner = new Scanner(System.in);
 
         //Initialize list
-        List studentsList = new ArrayList();
+        List<Student> studentsList = new ArrayList<Student>();
 
         //Initialize student class;
         Student student;
@@ -34,12 +34,18 @@ public class StudentScoresApp {
             studentLastName = console.getRequiredString("Enter the student's last name: ");
             studentScore = console.getIntWithinRange("Enter the student's score: ", 0, 100);
 
-            studentsList.add(student = new Student(studentFirstName, studentLastName, studentScore));
+            student = new Student(studentFirstName, studentLastName, studentScore);
+            studentsList.add(student);
 
             userAnswer = console.getChoiceString("Would you like to enter another student? (y/n) ", "y", "n");
         } while (userAnswer.equalsIgnoreCase("y"));
 
+        //Sorts list by last name and then first name
         Collections.sort(studentsList);
-        System.out.println(studentsList);
+
+        //Prints list
+        for (Object eachStudent : studentsList) {
+            System.out.println(eachStudent);
+        }
     }
 }

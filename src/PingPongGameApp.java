@@ -7,7 +7,6 @@ public class PingPongGameApp {
     public static void main(String[] args) {
         //Variables
         String userAnswer;
-        boolean repeat;
         boolean swingsMatch;
         int playerSwing;
         int cpuSwing;
@@ -16,6 +15,7 @@ public class PingPongGameApp {
         int winningScore = 7;
         String playerName;
         String cpuTaunt;
+        boolean playerHitFirst;
 
         //Initialize scanner
         Scanner scanner = new Scanner(System.in);
@@ -40,57 +40,87 @@ public class PingPongGameApp {
             do {
                 System.out.println("---");
                 System.out.println("Your serve...");
+                playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
+                cpuSwing = pingPong.getCpuSwing();
+                playerHitFirst = true;
                 do {
                     System.out.println("---");
-                    playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
-                    cpuSwing = pingPong.getCpuSwing();
                     swingsMatch = pingPong.compareSwings(playerSwing, cpuSwing);
                     System.out.println("---");
-                    if (swingsMatch == true) {
-                        System.out.println("CPU returned the ball!");
+                    if (playerHitFirst) {
+                        if (swingsMatch) {
+                            System.out.println("CPU returned the ball!");
+                            playerHitFirst = false;
+                            cpuSwing = pingPong.getCpuSwing();
+                            playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
+                        } else {
+                            System.out.println("CPU missed!");
+                            playerScore += 1;
+                        }
                     } else {
-                        System.out.println("CPU missed!");
+                        if (swingsMatch) {
+                            System.out.println(playerName + " returned the ball!");
+                            playerHitFirst = true;
+                            playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
+                            cpuSwing = pingPong.getCpuSwing();
+                        } else {
+                            System.out.println(playerName + " missed the ball...");
+                            System.out.println(cpuTaunt = pingPong.generateTaunt(playerName));
+                            cpuScore += 1;
+                        }
                     }
                 } while (swingsMatch);
 
-                if (swingsMatch == false) {
-                    playerScore += 1;
-                    if (playerScore == winningScore) {
-                        break;
-                    }
-
-                    System.out.println("---");
-                    System.out.println("Current score: Player - " + playerScore + " CPU - " + cpuScore);
-                    System.out.println("---");
-                    System.out.println("Good job! CPU is serving...");
+                if (playerScore == winningScore || cpuScore == winningScore) {
+                    break;
                 }
 
+                System.out.println("---");
+                System.out.println("Current score: Player - " + playerScore + " CPU - " + cpuScore);
+                System.out.println("---");
+                System.out.println("CPU is serving...");
+
+                cpuSwing = pingPong.getCpuSwing();
+                playerHitFirst = false;
+                playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                 do {
-                    cpuSwing = pingPong.getCpuSwing();
                     System.out.println("---");
-                    playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                     swingsMatch = pingPong.compareSwings(playerSwing, cpuSwing);
                     System.out.println("---");
-                    if (swingsMatch) {
-                        System.out.println("You returned the ball!");
+                    if (playerHitFirst) {
+                        if (swingsMatch) {
+                            System.out.println("CPU returned the ball...");
+                            playerHitFirst = false;
+                            cpuSwing = pingPong.getCpuSwing();
+                            playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
+                        } else {
+                            System.out.println("CPU missed!");
+                            playerScore += 1;
+                        }
                     } else {
-                        System.out.println("MISS!");
+                        if (swingsMatch) {
+                            System.out.println(playerName + " returned the ball!");
+                            playerHitFirst = true;
+                            playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
+                            cpuSwing = pingPong.getCpuSwing();
+                        } else {
+                            System.out.println(playerName + " missed the ball...");
+                            System.out.println(cpuTaunt = pingPong.generateTaunt(playerName));
+                            cpuScore += 1;
+                        }
                     }
                 } while (swingsMatch);
 
-                if (swingsMatch == false) {
-                    cpuScore += 1;
-                    if (cpuScore == winningScore) {
-                        break;
-                    }
-
-                    System.out.println("---");
-                    System.out.println(cpuTaunt = pingPong.generateTaunt(playerName));
-                    System.out.println("---");
-                    System.out.println("Current score: Player - " + playerScore + " CPU - " + cpuScore);
-                    System.out.println("---");
-                    System.out.println("Bummer. Get ready to serve...");
+                if (cpuScore == winningScore || playerScore == winningScore) {
+                    break;
                 }
+
+                System.out.println("---");
+                System.out.println("---");
+                System.out.println("Current score: Player - " + playerScore + " CPU - " + cpuScore);
+                System.out.println("---");
+                System.out.println("Get ready to serve...");
+
             } while (playerScore < winningScore || cpuScore < winningScore );
 
             System.out.println("---");
@@ -103,12 +133,6 @@ public class PingPongGameApp {
 
             System.out.println("---");
             userAnswer = validator.getChoiceString("Would you like to continue? (y/n): ", "y", "n");
-
-            if (userAnswer.equalsIgnoreCase("y")) {
-                repeat = true;
-            } else {
-                repeat = false;
-            }
-        } while (repeat);
+        } while (userAnswer.equalsIgnoreCase("y"));
     }
 }

@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * <p>The <code>Student</code> class takes in string values for student first and last names, and
  * integer values for the student's score.  The values are passed into a constructor to create
@@ -60,8 +57,8 @@ public class Student implements Comparable<Student> {
     }
 
     /**
-     *<p>The remaining methods are used to sort the <code>Student</code> object by the studentLastName
-     * property.</p>
+     *<p>The remaining methods are used to sort a collection of <code>Student</code> objects by the studentLastName
+     * property and then the studentFirstName property.</p>
      *
      * <p>See <a href = "https://docs.oracle.com/javase/tutorial/collections/interfaces/order.html">link</a>
      * for more information and source.</p>
