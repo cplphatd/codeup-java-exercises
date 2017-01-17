@@ -3,30 +3,34 @@
  */
 public class Circle {
     //Variables
-    double userRadius;
-    public static int circleCounter = 0;
+    private double userRadius;
+    private double circleCircumference;
+    private double circleArea;
+    private static int circleCounter = 0;
 
     public Circle (double userRadius) {
         this.userRadius = userRadius;
+        this.circleCircumference = getCircumference();
+        this.circleArea = getArea();
         circleCounter += 1;
     }
 
     public double getCircumference () {
-        return 2*Math.PI*this.userRadius;
+        return 2*Math.PI*userRadius;
     }
 
     public String getFormattedCircumference () {
-        double numberCircumference = getCircumference();
+        double numberCircumference = circleCircumference;
 
         return formatNumber(numberCircumference);
     }
 
     public double getArea () {
-        return Math.PI*(Math.pow(this.userRadius, 2));
+        return Math.PI*(Math.pow(userRadius, 2));
     }
 
     public String getFormattedArea () {
-        double numberArea = getArea();
+        double numberArea = circleArea;
 
         return formatNumber(numberArea);
     }
@@ -38,7 +42,6 @@ public class Circle {
     }
 
     public static int getObjectCount () {
-        return
-                circleCounter;
+        return circleCounter;
     }
 }

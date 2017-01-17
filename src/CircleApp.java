@@ -1,3 +1,5 @@
+import Alviola.Console;
+
 import java.util.Scanner;
 
 /**
@@ -13,10 +15,15 @@ public class CircleApp {
         //Initialize scanner
         Scanner sc = new Scanner(System.in);
 
+        //Initialize validator
+        Console console = new Console(sc);
+
+        System.out.println("Welcome to the Circle Info Calculator");
+
         do {
             do {
-                System.out.print("Enter the radius (in): ");
-                userRadius = sc.nextDouble();
+                System.out.println("---");
+                userRadius = console.getDouble("Enter the radius (in): ");
 
                 if (userRadius <= 0) {
                     System.out.println("Enter a radius > 0.");
@@ -25,28 +32,23 @@ public class CircleApp {
 
             Circle userCircle = new Circle (userRadius);
 
-            System.out.println("For a circle of radius " + userRadius + "in: ");
+            System.out.println("---");
+            System.out.println("For a circle of radius " + userRadius + " in...");
             System.out.println("---");
 
             userCircle.getCircumference();
-            System.out.println("Circumference: " + userCircle.getFormattedCircumference() + "in");
+            System.out.println("Circumference:  " + userCircle.getFormattedCircumference() + " in");
 
             userCircle.getArea();
-            System.out.println("Area: " + userCircle.getFormattedArea() + "in");
+            System.out.println("Area:  " + userCircle.getFormattedArea() + " in^2");
 
-            do {
-                System.out.print("Would you like to calculate another circle? (y/n): ");
-                userAnswer = sc.next();
+            System.out.println("---");
+            userAnswer = console.getChoiceString("Would you like to calculate another circle? (y/n): ", "y", "n");
 
-                if (userAnswer.equalsIgnoreCase("y") || userAnswer.equalsIgnoreCase("yes")) {
-                    repeat = true;
-                } else if (userAnswer.equalsIgnoreCase("n") || userAnswer.equalsIgnoreCase("no")){
-                    repeat = false;
-                    System.out.println("Thanks for using the Circle App! Circles calculated: " + userCircle.getObjectCount());
-                } else {
-                    repeat = false;
-                }
-            } while (!userAnswer.equalsIgnoreCase("y") && !userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("n") && !userAnswer.equalsIgnoreCase("no"));
-        } while (repeat);
+            if (userAnswer.equalsIgnoreCase("n")) {
+                System.out.println("---");
+                System.out.println("Thanks for using the Circle App! Circles calculated: " + Circle.getObjectCount());
+            }
+        } while (userAnswer.equalsIgnoreCase("y"));
     }
 }

@@ -40,11 +40,11 @@ public class PingPongGameApp {
             do {
                 System.out.println("---");
                 System.out.println("Your serve...");
+                System.out.println("---");
                 playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                 cpuSwing = pingPong.getCpuSwing();
                 playerHitFirst = true;
                 do {
-                    System.out.println("---");
                     swingsMatch = pingPong.compareSwings(playerSwing, cpuSwing);
                     System.out.println("---");
                     if (playerHitFirst) {
@@ -52,6 +52,7 @@ public class PingPongGameApp {
                             System.out.println("CPU returned the ball!");
                             playerHitFirst = false;
                             cpuSwing = pingPong.getCpuSwing();
+                            System.out.println("---");
                             playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                         } else {
                             System.out.println("CPU missed!");
@@ -61,10 +62,12 @@ public class PingPongGameApp {
                         if (swingsMatch) {
                             System.out.println(playerName + " returned the ball!");
                             playerHitFirst = true;
+                            System.out.println("---");
                             playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                             cpuSwing = pingPong.getCpuSwing();
                         } else {
                             System.out.println(playerName + " missed the ball...");
+                            System.out.println("---");
                             System.out.println(cpuTaunt = pingPong.generateTaunt(playerName));
                             cpuScore += 1;
                         }
@@ -82,9 +85,9 @@ public class PingPongGameApp {
 
                 cpuSwing = pingPong.getCpuSwing();
                 playerHitFirst = false;
+                System.out.println("---");
                 playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                 do {
-                    System.out.println("---");
                     swingsMatch = pingPong.compareSwings(playerSwing, cpuSwing);
                     System.out.println("---");
                     if (playerHitFirst) {
@@ -92,6 +95,7 @@ public class PingPongGameApp {
                             System.out.println("CPU returned the ball...");
                             playerHitFirst = false;
                             cpuSwing = pingPong.getCpuSwing();
+                            System.out.println("---");
                             playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                         } else {
                             System.out.println("CPU missed!");
@@ -101,10 +105,12 @@ public class PingPongGameApp {
                         if (swingsMatch) {
                             System.out.println(playerName + " returned the ball!");
                             playerHitFirst = true;
+                            System.out.println("---");
                             playerSwing = validator.getIntWithinRange("Swing left(1) or swing right(2)? ", 1, 2);
                             cpuSwing = pingPong.getCpuSwing();
                         } else {
                             System.out.println(playerName + " missed the ball...");
+                            System.out.println("---");
                             System.out.println(cpuTaunt = pingPong.generateTaunt(playerName));
                             cpuScore += 1;
                         }
@@ -116,7 +122,6 @@ public class PingPongGameApp {
                 }
 
                 System.out.println("---");
-                System.out.println("---");
                 System.out.println("Current score: Player - " + playerScore + " CPU - " + cpuScore);
                 System.out.println("---");
                 System.out.println("Get ready to serve...");
@@ -127,7 +132,8 @@ public class PingPongGameApp {
             if (playerScore > cpuScore) {
                 System.out.println("Congratulations, " + playerName + "! You won!");
             } else {
-                System.out.println(playerName + ", you're the worst.");
+                System.out.println("CPU: " + playerName + ", you're the worst.");
+                System.out.println("---");
                 System.out.println("Better luck next time...");
             }
 

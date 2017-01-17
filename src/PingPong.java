@@ -39,13 +39,13 @@ public class PingPong {
         tauntNumber = random.nextInt(4);
 
         if (tauntNumber == 0) {
-            return "Is that the best you got, " + playerName + "?";
+            return "CPU: Is that the best you got, " + playerName + "?";
         } else if (tauntNumber == 1) {
-            return "You're going down, " + playerName + "!";
+            return "CPU: You're going down, " + playerName + "!";
         } else if (tauntNumber == 2) {
-            return playerName + ", my grandma is better at Ping Pong than you.";
+            return "CPU: " + playerName + ", my grandma is better at Ping Pong than you.";
         } else if (tauntNumber == 3) {
-            return playerName + ", I wasn't even trying that time!";
+            return "CPU: " + playerName + ", I wasn't even trying that time!";
         }
         return "";
     }

@@ -1,9 +1,6 @@
 import Alviola.Console;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by David on 1/13/17.
@@ -47,5 +44,12 @@ public class StudentScoresApp {
         for (Object eachStudent : studentsList) {
             System.out.println(eachStudent);
         }
+
+//        Code to print with an iterator:
+//        Iterator<Student> studentIterator = studentsList.iterator();
+//
+//        while(studentIterator.hasNext()) {
+//            System.out.println(studentIterator.next());
+//        }
     }
 }
