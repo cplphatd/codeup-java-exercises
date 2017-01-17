@@ -12,7 +12,7 @@ public class Student implements Comparable<Student> {
     private int studentScore;
 
     /**
-     * <p>The constructor for the <code>Student</code> class</p>
+     * <p>The constructor for the <code>Student</code> class.</p>
      *
      * @param studentFirstName a string that is the student's first name
      * @param studentLastName a string that is the student's last name

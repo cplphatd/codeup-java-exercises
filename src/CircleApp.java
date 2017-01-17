@@ -18,28 +18,28 @@ public class CircleApp {
         //Initialize validator
         Console console = new Console(sc);
 
-        System.out.println("Welcome to the Circle Info Calculator");
+        System.out.println("Welcome to the Circle App!");
 
+        //Repeats if user selects "y"
         do {
+            //Prevents user from entering radius <= 0
             do {
                 System.out.println("---");
                 userRadius = console.getDouble("Enter the radius (in): ");
 
                 if (userRadius <= 0) {
-                    System.out.println("Enter a radius > 0.");
+                    System.out.println("Enter a radius > 0");
                 }
             } while (userRadius <= 0);
 
+            //Create new circle object
             Circle userCircle = new Circle (userRadius);
 
             System.out.println("---");
             System.out.println("For a circle of radius " + userRadius + " in...");
             System.out.println("---");
 
-            userCircle.getCircumference();
             System.out.println("Circumference:  " + userCircle.getFormattedCircumference() + " in");
-
-            userCircle.getArea();
             System.out.println("Area:  " + userCircle.getFormattedArea() + " in^2");
 
             System.out.println("---");
