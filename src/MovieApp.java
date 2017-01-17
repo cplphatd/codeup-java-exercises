@@ -23,7 +23,6 @@ public class MovieApp {
         //Local variables
         String userAnswer;
         int userCategory;
-        String stringMovieCategory;
 
         //Initialize scanner
         Scanner scanner = new Scanner(System.in);
@@ -46,12 +45,10 @@ public class MovieApp {
             //Set movieCategory
             setCategory(userCategory);
 
-            //Convert user choice to string (extra step since constructor uses strings for category instead of enum)
-            stringMovieCategory = convertUserChoice(movieCategory);
+            //Prints results
+            printUserQuery(movieCategory.toString());
 
-            //Print user query
-            printUserQuery(stringMovieCategory);
-
+            //Handling at end of session
             System.out.println("---");
             userAnswer = validator.getChoiceString("Would you like to search for another category? (y/n): ", "y", "n");
 
@@ -61,6 +58,7 @@ public class MovieApp {
             }
         } while (userAnswer.equalsIgnoreCase("y"));
     }
+
 
     public static void populateMovieList () {
         for (int i = 0; i < 100; i += 1) {
@@ -87,23 +85,6 @@ public class MovieApp {
                 break;
             default:
                 System.out.println("Error @ getCategory");
-        }
-    }
-
-    private static String convertUserChoice (MovieCategory movieCategory) {
-        switch (movieCategory) {
-            case ANIMATED:
-                return "animated";
-            case DRAMA:
-                return "drama";
-            case HORROR:
-                return "horror";
-            case MUSICAL:
-                return "musical";
-            case SCIFI:
-                return "scifi";
-            default:
-                return "Error @ convertUserChoice";
         }
     }
 
