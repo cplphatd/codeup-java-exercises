@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by David on 1/17/17.
+ * <p>The <code>MovieApp</code> class prompts the user for an integer input corresponding to
+ * a movie category. The method then returns a list of movies belonging to the selected category that
+ * is sorted alphabetically.</p>
+ *
+ * @author David Ryan Alviola
+ * @since 17 January 2017
  */
 public class MovieApp {
     //Static variables
@@ -18,7 +23,11 @@ public class MovieApp {
     //Create array list
     private static List<Movie> moviesList = new ArrayList<Movie>();
 
-    //Main method
+    /**
+     * <p>Main method for the <code>MovieApp</code> class.</p>
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         //Local variables
         String userAnswer;
@@ -40,7 +49,7 @@ public class MovieApp {
         do {
             //Display choices and validate user choice
             printUserChoices();
-            userCategory = validator.getIntWithinRange("Choose the category your want (1-5): ", 1, 5);
+            userCategory = validator.getIntWithinRange("Choose a category (1-6): ", 1, 6);
 
             //Set movieCategory
             setCategory(userCategory);
@@ -59,13 +68,21 @@ public class MovieApp {
         } while (userAnswer.equalsIgnoreCase("y"));
     }
 
-
+    /**
+     * <p>Populates a list with movie objects</p>
+     */
     public static void populateMovieList () {
         for (int i = 0; i < 100; i += 1) {
             moviesList.add(i, moviesIO.getMovie(i+1));
         }
     }
 
+    /**
+     * <p>Takes an integer value and sets the variable <code>movieCategory</code> to the associated
+     * enumeration.</p>
+     *
+     * @param userCategory an integer value selected by the user
+     */
     public static void setCategory (int userCategory) {
         switch (userCategory) {
             case 1:
@@ -75,19 +92,28 @@ public class MovieApp {
                 movieCategory = MovieCategory.DRAMA;
                 break;
             case 3:
-                movieCategory = MovieCategory.HORROR;
+                movieCategory = MovieCategory.COMEDY;
                 break;
             case 4:
-                movieCategory = MovieCategory.MUSICAL;
+                movieCategory = MovieCategory.HORROR;
                 break;
             case 5:
-                movieCategory = MovieCategory.SCIFI;
+                movieCategory = MovieCategory.MUSICAL;
                 break;
+            case 6:
+                movieCategory = MovieCategory.SCIFI;
             default:
                 System.out.println("Error @ getCategory");
         }
     }
 
+    /**
+     * <p>Takes a string value for the movie category then iterates through a list of <code>Movie</code>
+     * objects. If the category of the <code>Movie</code> object matches the desired category, the <code>Movie</code>
+     * object title is printed.</p>
+     *
+     * @param stringMovieCategory
+     */
     private static void printUserQuery (String stringMovieCategory) {
         System.out.println("---");
 
@@ -98,13 +124,17 @@ public class MovieApp {
         }
     }
 
+    /**
+     * <p>Prints the choices for the user.</p>
+     */
     private static void printUserChoices () {
         System.out.println("---");
         System.out.println("(1) Animated");
         System.out.println("(2) Drama");
-        System.out.println("(3) Horror");
-        System.out.println("(4) Musical");
-        System.out.println("(5) Scifi");
+        System.out.println("(3) Comedy");
+        System.out.println("(4) Horror");
+        System.out.println("(5) Musical");
+        System.out.println("(6) Sci-fi");
         System.out.println("---");
     }
 }
