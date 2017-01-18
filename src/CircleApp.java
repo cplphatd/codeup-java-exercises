@@ -25,7 +25,7 @@ public class CircleApp {
             //Prevents user from entering radius <= 0
             do {
                 System.out.println("---");
-                userRadius = console.getDouble("Enter the radius (in): ");
+                userRadius = console.getDouble("Enter the radius: ");
 
                 if (userRadius <= 0) {
                     System.out.println("Enter a radius > 0");
@@ -36,11 +36,11 @@ public class CircleApp {
             Circle userCircle = new Circle (userRadius);
 
             System.out.println("---");
-            System.out.println("For a circle of radius " + userRadius + " in...");
+            System.out.println("For a circle of radius " + userRadius + "...");
             System.out.println("---");
 
-            System.out.println("Circumference:  " + userCircle.getFormattedCircumference() + " in");
-            System.out.println("Area:  " + userCircle.getFormattedArea() + " in^2");
+            System.out.println("Circumference:  " + userCircle.getFormattedCircumference());
+            System.out.println("Area:  " + userCircle.getFormattedArea());
 
             System.out.println("---");
             userAnswer = console.getChoiceString("Would you like to calculate another circle? (y/n): ", "y", "n");

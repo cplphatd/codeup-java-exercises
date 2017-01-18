@@ -71,9 +71,8 @@ public class Circle {
      * @return string value of double formatted to two decimal places
      */
     private String formatNumber (double x) {
-        String stringX = String.valueOf(x); //Cannot use toString() on primitives
 
-        return stringX.substring(0, stringX.indexOf(".") + 3);
+        return String.format("%.2f", x);
     }
 
     /**

@@ -21,7 +21,7 @@ public class MovieApp {
     private static MoviesIO moviesIO = new MoviesIO();
 
     //Create array list
-    private static List<Movie> moviesList = new ArrayList<Movie>();
+    private static List<Movie> moviesList = new ArrayList<>();
 
     /**
      * <p>Main method for the <code>MovieApp</code> class.</p>
@@ -71,9 +71,9 @@ public class MovieApp {
     /**
      * <p>Populates a list with movie objects</p>
      */
-    public static void populateMovieList () {
+    private static void populateMovieList () {
         for (int i = 0; i < 100; i += 1) {
-            moviesList.add(i, moviesIO.getMovie(i+1));
+            moviesList.add(i, MoviesIO.getMovie(i+1));
         }
     }
 
@@ -83,7 +83,7 @@ public class MovieApp {
      *
      * @param userCategory an integer value selected by the user
      */
-    public static void setCategory (int userCategory) {
+    private static void setCategory (int userCategory) {
         switch (userCategory) {
             case 1:
                 movieCategory = MovieCategory.ANIMATED;
@@ -112,14 +112,14 @@ public class MovieApp {
      * objects. If the category of the <code>Movie</code> object matches the desired category, the <code>Movie</code>
      * object title is printed.</p>
      *
-     * @param stringMovieCategory
+     * @param stringMovieCategory string value of the movie category
      */
     private static void printUserQuery (String stringMovieCategory) {
         System.out.println("---");
 
-        for (int i = 0; i < moviesList.size() - 1; i += 1) {
-            if (moviesList.get(i).getMovieCategory().equals(stringMovieCategory)) {
-                System.out.println(moviesList.get(i).getMovieTitle());
+        for (Movie movie : moviesList) {
+            if (movie.getMovieCategory().equals(stringMovieCategory)) {
+                System.out.println(movie.getMovieTitle());
             }
         }
     }
