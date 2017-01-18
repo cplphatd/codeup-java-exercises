@@ -6,13 +6,15 @@ import java.util.Random;
 public class RoshamboPlayer {
     //Variables
     private String playerName;
+    private static int wins;
+    private static int losses;
 
     /**
      * <p>Default constructor of <code>RoshamboPlayer</code> class for use by its subclasses.</p>
      */
     protected RoshamboPlayer () {}
 
-    public RoshamboPlayer (String playerName) {
+    public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
@@ -40,5 +42,21 @@ public class RoshamboPlayer {
 
     public String getPlayerName() {
         return playerName;
+    }
+
+    public static int getWins() {
+        return wins;
+    }
+
+    public static int getLosses() {
+        return losses;
+    }
+
+    public static void incrementWins() {
+        wins += 1;
+    }
+
+    public static void incrementLosses() {
+        losses += 1;
     }
 }

@@ -15,6 +15,4 @@ public enum Roshambo {
     public String toString () {
         return this.selection;
     }
-
-
 }
