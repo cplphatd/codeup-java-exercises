@@ -36,7 +36,7 @@ public class RoshamboPlayerInput extends RoshamboPlayer{
         System.out.println("(2) Paper");
         System.out.println("(3) Scissors");
         System.out.println("---");
-        int playerSelection = validator.getIntWithinRange("Enter your move (1-3): ", 1, 3);
+        int playerSelection = validator.getIntWithinRange("Choose your weapon (1-3): ", 1, 3);
 
         return decodeRoshambo(playerSelection);
     }

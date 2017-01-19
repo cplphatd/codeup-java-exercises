@@ -6,6 +6,9 @@
  * @since 18 January 2017
  */
 public class RoshamboOpponentNormal extends RoshamboPlayer {
+    /**
+     * <p>Randomly selects ROCK, PAPER, or SCISSORS</p>
+     */
     private Roshambo normalSelection = generateRoshambo(1, 3);
 
     /**

@@ -72,9 +72,6 @@ public class RoshamboApp {
                 System.out.println("Thanks for playing! See you later, " + roshamboPlayer.getPlayerName() + ".");
             }
         } while (userAnswer.equalsIgnoreCase("y"));
-
-
-
     }
 
     /**
@@ -102,15 +99,14 @@ public class RoshamboApp {
         switch (playerMove) {
             case "rock":
                 switch (opponentMove) {
-                    case "rock":
-                        draw();
-                        break;
                     case "paper":
                         loss();
                         break;
                     case "scissors":
                         win();
                         break;
+                    default:
+                        draw();
                 }
                 break;
             case "paper":
@@ -118,12 +114,11 @@ public class RoshamboApp {
                     case "rock":
                         win();
                         break;
-                    case "paper":
-                        draw();
-                        break;
                     case "scissors":
                         loss();
                         break;
+                    default:
+                        draw();
                 }
                 break;
             case "scissors":
@@ -134,9 +129,8 @@ public class RoshamboApp {
                     case "paper":
                         win();
                         break;
-                    case "scissors":
+                    default:
                         draw();
-                        break;
                 }
                 break;
             default:
