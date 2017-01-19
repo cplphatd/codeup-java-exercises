@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author David Ryan Alviola
  * @since 18 January 2017
  */
-public class RoshamboPlayerInput {
+public class RoshamboPlayerInput extends RoshamboPlayer{
     //Initialize scanner
     Scanner scanner = new Scanner(System.in);
 
@@ -38,7 +38,7 @@ public class RoshamboPlayerInput {
         System.out.println("---");
         int playerSelection = validator.getIntWithinRange("Enter your move (1-3): ", 1, 3);
 
-        return RoshamboPlayer.decodeRoshambo(playerSelection);
+        return decodeRoshambo(playerSelection);
     }
 
     /**

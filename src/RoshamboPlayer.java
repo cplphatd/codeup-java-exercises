@@ -37,7 +37,7 @@ public class RoshamboPlayer {
      * @param max integer value of the upper bound
      * @return a Roshambo value based on the random integer
      */
-    protected static Roshambo generateRoshambo (int min, int max) {
+    protected Roshambo generateRoshambo (int min, int max) {
         //Initialize randomizer
         Random random = new Random();
 
@@ -53,7 +53,7 @@ public class RoshamboPlayer {
      * @param num an integer value
      * @return a Roshambo value
      */
-    protected static Roshambo decodeRoshambo (int num) {
+    protected Roshambo decodeRoshambo (int num) {
         switch (num) {
             case 1:
                 return Roshambo.ROCK;

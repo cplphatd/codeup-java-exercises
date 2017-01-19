@@ -5,7 +5,7 @@ public class RoshamboOpponentEasy extends RoshamboPlayer {
     /**
      * <p>Ensures the easy opponent always selects ROCK.</p>
      */
-    private Roshambo easySelection = RoshamboPlayer.generateRoshambo(1, 1);
+    private Roshambo easySelection = generateRoshambo(1, 1);
 
     public Roshambo getEasySelection() {
         return easySelection;
