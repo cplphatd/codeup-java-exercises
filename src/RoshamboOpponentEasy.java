@@ -1,5 +1,9 @@
 /**
- * Created by David on 1/18/17.
+ * <p>The <code>RoshamboOpponentEasy</code> class is a subclass of the
+ * <code>RoshamboPlayer</code> class. Behavior for the easy opponent are handled in this class.</p>
+ *
+ * @author David Ryan Alviola
+ * @since 18 January 2017
  */
 public class RoshamboOpponentEasy extends RoshamboPlayer {
     /**
@@ -7,6 +11,9 @@ public class RoshamboOpponentEasy extends RoshamboPlayer {
      */
     private Roshambo easySelection = generateRoshambo(1, 1);
 
+    /**
+     * @return the Roshambo value of the easy opponent's move
+     */
     public Roshambo getEasySelection() {
         return easySelection;
     }
