@@ -3,7 +3,11 @@ import Alviola.Console;
 import java.util.Scanner;
 
 /**
- * Created by David on 1/18/17.
+ * <p>The <code>RoshamboPlayerInput</code> class handles a majority of the player input methods
+ * for a session of Roshambo.</p>
+ *
+ * @author David Ryan Alviola
+ * @since 18 January 2017
  */
 public class RoshamboPlayerInput {
     //Initialize scanner
@@ -12,10 +16,20 @@ public class RoshamboPlayerInput {
     //Initialize validator
     Console validator = new Console(scanner);
 
+    /**
+     * <p>Prompts user for a string value of the player name</p>
+     *
+     * @return validated string value of the player name
+     */
     public String getPlayerName () {
         return validator.getRequiredString("Please enter your name: ");
     }
 
+    /**
+     * <p>Displays Roshambo choices then prompts user for integer value representing choice.</p>
+     *
+     * @return a Roshambo value corresponding to the chosen integer value
+     */
     public Roshambo getPlayerRoshambo () {
         System.out.println("---");
         System.out.println("(1) Rock");
@@ -27,6 +41,11 @@ public class RoshamboPlayerInput {
         return RoshamboPlayer.decodeRoshambo(playerSelection);
     }
 
+    /**
+     * <p>Prompts the user for an integer value corresponding to the desired difficulty.</p>
+     *
+     * @return a RoshamboPlayer subclass object corresponding to the chosen difficulty
+     */
     public RoshamboPlayer selectDifficulty () {
         System.out.println("---");
         System.out.println("(1) Easy");

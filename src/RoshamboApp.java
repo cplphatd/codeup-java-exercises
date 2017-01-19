@@ -3,7 +3,13 @@ import Alviola.Console;
 import java.util.Scanner;
 
 /**
- * Created by David on 1/18/17.
+ * <p>The <code>RoshamboApp</code> class allows the user to play the game of Roshambo (Rock, Paper, Scissors).
+ * The player enters his/her name and chooses a difficulty. The player throws a move and it is compared to the
+ * CPU move where the game will end in a win, loss, or draw. Wins and losses are tracked as long as the player
+ * chooses to continue.</p>
+ *
+ * @author David Ryan Alviola
+ * @since 18 January 2017
  */
 public class RoshamboApp {
     //Initialize scanner
@@ -12,6 +18,11 @@ public class RoshamboApp {
     //Initialize validator
     static Console validator = new Console(scanner);
 
+    /**
+     * <p>Main method for the <code>RoshamboApp</code> class.</p>
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         //Local Variables
         String userAnswer;
@@ -48,7 +59,7 @@ public class RoshamboApp {
 
             //Compare moves
             System.out.println("---");
-            System.out.println("You threw: " + playerMove + ". Your opponent threw: " + opponentMove + ".");
+            System.out.println(roshamboPlayer.getPlayerName()+ " threw: " + playerMove + ". CPU threw: " + opponentMove + ".");
             determineResult(playerMove, opponentMove);
 
             //Show score
@@ -58,7 +69,7 @@ public class RoshamboApp {
             userAnswer = validator.getChoiceString("Would you like to play again? (y/n) ", "y", "n");
             if (userAnswer.equalsIgnoreCase("n")) {
                 System.out.println("---");
-                System.out.println("Thanks for playing! See you later, " + playerName + ".");
+                System.out.println("Thanks for playing! See you later, " + roshamboPlayer.getPlayerName() + ".");
             }
         } while (userAnswer.equalsIgnoreCase("y"));
 
@@ -66,6 +77,10 @@ public class RoshamboApp {
 
     }
 
+    /**
+     * <p>Displays the app title in ASCII art.
+     * Generated <a href="http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20">here</a>.</p>
+     */
     private static void displayTitle () {
         System.out.println(".______        ______        _______. __    __       ___      .___  ___. .______     ______   \n" +
                 "|   _  \\      /  __  \\      /       ||  |  |  |     /   \\     |   \\/   | |   _  \\   /  __  \\  \n" +
@@ -76,6 +91,13 @@ public class RoshamboApp {
                 "                                                                                              ");
     }
 
+    /**
+     * <p>Takes in string values of the player and CPU moves then calls the appropriate method depending
+     * on the result.</p>
+     *
+     * @param playerMove string value of the move the player threw
+     * @param opponentMove string value of the move the CPU threw
+     */
     private static void determineResult (String playerMove, String opponentMove) {
         switch (playerMove) {
             case "rock":
@@ -122,23 +144,35 @@ public class RoshamboApp {
         }
     }
 
+    /**
+     * <p>Displays message when player wins. Increases the number of session wins by 1.</p>
+     */
     private static void win () {
         System.out.println("---");
         System.out.println("You win!");
         RoshamboPlayer.incrementWins();
     }
 
+    /**
+     * <p>Displays message when player loses. Increases the number of session losses by 1.</p>
+     */
     private static void loss () {
         System.out.println("---");
         System.out.println("You lose...");
         RoshamboPlayer.incrementLosses();
     }
 
+    /**
+     * <p>Displays message when player and CPU draw.</p>
+     */
     private static void draw () {
         System.out.println("---");
         System.out.println("Draw.");
     }
 
+    /**
+     * <p>Displays the number of session wins and losses.</p>
+     */
     private static void showScore () {
         System.out.println("---");
         System.out.println("Wins: " + RoshamboPlayer.getWins() + " Losses: " + RoshamboPlayer.getLosses());
