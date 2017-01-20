@@ -9,17 +9,19 @@ import java.util.Scanner;
  * @author David Ryan Alviola
  * @since 18 January 2017
  */
-public class RoshamboPlayerInput extends RoshamboPlayer{
+public class RoshamboPlayerHuman extends RoshamboPlayer{
     //Initialize validator
     Console validator = new Console();
 
+    //Variables
+    String playerName;
+
     /**
-     * <p>Prompts user for a string value of the player name</p>
+     * <p>Prompts user for a string value of the player name and sets the value <code>playerName</code></p>
      *
-     * @return validated string value of the player name
      */
-    public String getPlayerName () {
-        return validator.getRequiredString("Please enter your name: ");
+    public void setPlayerName () {
+        playerName = validator.getRequiredString("Please enter your name: ");
     }
 
     /**
@@ -27,7 +29,7 @@ public class RoshamboPlayerInput extends RoshamboPlayer{
      *
      * @return a Roshambo value corresponding to the chosen integer value
      */
-    public Roshambo getPlayerRoshambo () {
+    public Roshambo generateRoshambo () {
         System.out.println("---");
         System.out.println("(1) Rock");
         System.out.println("(2) Paper");

@@ -8,7 +8,7 @@ import java.util.Random;
  * @author David Ryan Alviola
  * @since 18 January 2017
  */
-public class RoshamboPlayer {
+public abstract class RoshamboPlayer {
     //Variables
     private String playerName;
     private static int wins;
@@ -29,22 +29,10 @@ public class RoshamboPlayer {
     }
 
     /**
-     * <p>Takes in integer values for the minimum and maximum bounds and generates a random integer
-     * within and including those values. The random integer is passed into the static <code>decodeRoshambo</code>
-     * method and a <code>Roshambo</code> value is returned.</p>
-     *
-     * @param min integer value of the lower bound
-     * @param max integer value of the upper bound
-     * @return a Roshambo value based on the random integer
+     *<p>Abstract method to allow different behaviors of <code>generateRoshambo</code> method
+     * on the subclasses.</p>
      */
-    protected Roshambo generateRoshambo (int min, int max) {
-        //Initialize randomizer
-        Random random = new Random();
-
-        int num = random.nextInt(max) + min;
-
-        return decodeRoshambo(num);
-    }
+    public abstract Roshambo generateRoshambo ();
 
     /**
      * <p>Takes in an integer value and returns a corresponding Roshambo value. Defaults to return

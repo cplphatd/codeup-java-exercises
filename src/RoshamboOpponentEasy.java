@@ -6,15 +6,11 @@
  * @since 18 January 2017
  */
 public class RoshamboOpponentEasy extends RoshamboPlayer {
-    /**
-     * <p>Ensures the easy opponent always selects ROCK.</p>
-     */
-    private Roshambo easySelection = generateRoshambo(1, 1);
 
     /**
-     * @return the Roshambo value of the easy opponent's move
+     * @return a <code>Roshambo</code> value of <code>ROCK</code>
      */
-    public Roshambo getEasySelection() {
-        return easySelection;
+    public Roshambo generateRoshambo() {
+        return Roshambo.ROCK;
     }
 }

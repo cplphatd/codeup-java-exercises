@@ -31,33 +31,31 @@ public class RoshamboApp {
         System.out.println("Welcome to Roshambo!");
         System.out.println("---");
 
-        //Get player info
-        RoshamboPlayerInput roshamboPlayerInput = new RoshamboPlayerInput();
-        String playerName = roshamboPlayerInput.getPlayerName();
+        //Create human player object
+        RoshamboPlayerHuman roshamboPlayerHuman = new RoshamboPlayerHuman();
 
-        //Create player object
-        RoshamboPlayer roshamboPlayer = new RoshamboPlayer();
-        roshamboPlayer.setPlayerName(playerName);
+        //Get player info
+        roshamboPlayerHuman.setPlayerName();
 
         //Repeats if user chooses "y"
         do {
             //Select difficulty
-            RoshamboPlayer opponent = roshamboPlayerInput.selectDifficulty();
+            RoshamboPlayer opponent = roshamboPlayerHuman.selectDifficulty();
 
             //Get player move
-            String playerMove = roshamboPlayerInput.getPlayerRoshambo().toString();
+            String playerMove = roshamboPlayerHuman.generateRoshambo().toString();
 
             //Opponent move
             String opponentMove = "";
             if (opponent instanceof RoshamboOpponentEasy) {
-                opponentMove = ((RoshamboOpponentEasy) opponent).getEasySelection().toString();
+                opponentMove = ((RoshamboOpponentEasy) opponent).generateRoshambo().toString();
             } else if (opponent instanceof  RoshamboOpponentNormal) {
-                opponentMove = ((RoshamboOpponentNormal) opponent).getNormalSelection().toString();
+                opponentMove = ((RoshamboOpponentNormal) opponent).generateRoshambo().toString();
             }
 
             //Compare moves
             System.out.println("---");
-            System.out.println(roshamboPlayer.getPlayerName()+ " threw: " + playerMove + ". CPU threw: " + opponentMove + ".");
+            System.out.println(roshamboPlayerHuman.playerName+ " threw: " + playerMove + ". CPU threw: " + opponentMove + ".");
             Roshambo.determineResult(playerMove, opponentMove);
 
             //Show score
@@ -67,7 +65,7 @@ public class RoshamboApp {
             userAnswer = validator.getChoiceString("Would you like to play again? (y/n) ", "y", "n");
             if (userAnswer.equalsIgnoreCase("n")) {
                 System.out.println("---");
-                System.out.println("Thanks for playing! See you later, " + roshamboPlayer.getPlayerName() + ".");
+                System.out.println("Thanks for playing! See you later, " + roshamboPlayerHuman.playerName + ".");
             }
         } while (userAnswer.equalsIgnoreCase("y"));
     }

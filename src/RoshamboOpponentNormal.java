@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * <p>The <code>RoshamboOpponentNormal</code> class is a subclass of the
  * <code>RoshamboPlayer</code> class. Behavior for the normal opponent are handled in this class.</p>
@@ -6,15 +8,20 @@
  * @since 18 January 2017
  */
 public class RoshamboOpponentNormal extends RoshamboPlayer {
-    /**
-     * <p>Randomly selects ROCK, PAPER, or SCISSORS</p>
-     */
-    private Roshambo normalSelection = generateRoshambo(1, 3);
 
     /**
-     * @return the Roshambo value of the normal opponent's move
+     * <p>Takes in integer values for the minimum and maximum bounds and generates a random integer
+     * within and including those values. The random integer is passed into the static <code>decodeRoshambo</code>
+     * method and a <code>Roshambo</code> value is returned.</p>
+     *
+     * @return a Roshambo value based on the random integer
      */
-    public Roshambo getNormalSelection() {
-        return normalSelection;
+    public Roshambo generateRoshambo () {
+    //Initialize randomizer
+    Random random = new Random();
+
+    int num = random.nextInt(3) + 1;
+
+    return decodeRoshambo(num);
     }
 }
