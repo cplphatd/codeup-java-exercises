@@ -13,9 +13,6 @@ public class StudentScoresApp {
         int studentScore;
         String userAnswer;
 
-        //Initialize scanner
-        Scanner scanner = new Scanner(System.in);
-
         //Initialize list
         List<Student> studentsList = new ArrayList<Student>();
 
@@ -23,7 +20,7 @@ public class StudentScoresApp {
         Student student;
 
         //Initialize console class;
-        Console console = new Console(scanner);
+        Console console = new Console();
 
         //Allows user to enter another student if they choose "y"
         do {

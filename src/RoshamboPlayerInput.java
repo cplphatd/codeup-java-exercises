@@ -10,11 +10,8 @@ import java.util.Scanner;
  * @since 18 January 2017
  */
 public class RoshamboPlayerInput extends RoshamboPlayer{
-    //Initialize scanner
-    Scanner scanner = new Scanner(System.in);
-
     //Initialize validator
-    Console validator = new Console(scanner);
+    Console validator = new Console();
 
     /**
      * <p>Prompts user for a string value of the player name</p>

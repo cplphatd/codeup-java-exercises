@@ -33,11 +33,8 @@ public class MovieApp {
         String userAnswer;
         int userCategory;
 
-        //Initialize scanner
-        Scanner scanner = new Scanner(System.in);
-
         //Initialize validator
-        Console validator = new Console(scanner);
+        Console validator = new Console();
 
         //Populate array list and then sort alphabetically
         populateMovieList();

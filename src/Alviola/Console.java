@@ -12,17 +12,11 @@ import java.util.Scanner;
  * @since 13 January 2017
  */
 public class Console {
-    //Declare scanner
-    Scanner scanner;
-
     /**
-     * <p>A scanner is passed into the constructor for use in methods that verify user input.</p>
-     *
-     * @param scanner the scanner used in the application
+     * <p>A scanner is declared within the <code>Console</code> class to remove the need of
+     * passing in a scanner from the main application.</p>
      */
-    public Console (Scanner scanner) {
-        this.scanner = scanner;
-    }
+    private Scanner scanner = new Scanner(System.in);
 
     /**
      * <p>Prints a passed in string.

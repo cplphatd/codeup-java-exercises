@@ -17,7 +17,7 @@ public class ConsoleTestApp {
         Scanner scanner = new Scanner(System.in);
 
         //Initialize console
-        Console console = new Console(scanner);
+        Console console = new Console();
 
         do {
             userInt = console.getInt("Please enter your favorite number: ");

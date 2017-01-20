@@ -12,11 +12,9 @@ import java.util.Scanner;
  * @since 18 January 2017
  */
 public class RoshamboApp {
-    //Initialize scanner
-    static Scanner scanner = new Scanner (System.in);
 
     //Initialize validator
-    static Console validator = new Console(scanner);
+    static Console validator = new Console();
 
     /**
      * <p>Main method for the <code>RoshamboApp</code> class.</p>

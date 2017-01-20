@@ -12,11 +12,8 @@ public class CircleApp {
         String userAnswer;
         double userRadius;
 
-        //Initialize scanner
-        Scanner sc = new Scanner(System.in);
-
         //Initialize validator
-        Console console = new Console(sc);
+        Console console = new Console();
 
         System.out.println("Welcome to the Circle App!");
 
