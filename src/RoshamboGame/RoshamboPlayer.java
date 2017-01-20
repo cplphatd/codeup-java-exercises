@@ -1,8 +1,8 @@
-import java.util.Random;
+package RoshamboGame;
 
 /**
- * <p>The <code>RoshamboPlayer</code> class takes a string value of the player name and creates
- * a player object. The <code>RoshamboPlayer</code> class handles game behaviors like generating
+ * <p>The <code>RoshamboGame.RoshamboPlayer</code> class takes a string value of the player name and creates
+ * a player object. The <code>RoshamboGame.RoshamboPlayer</code> class handles game behaviors like generating
  * random moves and decoding the integer values to return enumerations.</p>
  *
  * @author David Ryan Alviola
@@ -15,7 +15,7 @@ public abstract class RoshamboPlayer {
     private static int losses;
 
     /**
-     * <p>Default constructor of <code>RoshamboPlayer</code> class for use by its subclasses.</p>
+     * <p>Default constructor of <code>RoshamboGame.RoshamboPlayer</code> class for use by its subclasses.</p>
      */
     protected RoshamboPlayer (String playerName) {
         this.playerName = playerName;
@@ -25,14 +25,14 @@ public abstract class RoshamboPlayer {
      *<p>Abstract method to allow different behaviors of <code>generateRoshambo</code> method
      * on the subclasses.</p>
      */
-    public abstract Roshambo generateRoshambo ();
+    abstract Roshambo generateRoshambo ();
 
     /**
-     * <p>Takes in an integer value and returns a corresponding Roshambo value. Defaults to return
+     * <p>Takes in an integer value and returns a corresponding RoshamboGame.Roshambo value. Defaults to return
      *  <code>ROCK</code>.</p>
      *
      * @param num an integer value
-     * @return a Roshambo value
+     * @return a RoshamboGame.Roshambo value
      */
     protected Roshambo decodeRoshambo (int num) {
         switch (num) {

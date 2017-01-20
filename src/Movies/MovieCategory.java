@@ -1,6 +1,8 @@
+package Movies;
+
 /**
- * <p>The <code>MovieCategory</code> enumeration provides movie categories and the associated
- * string values for use with the <code>MovieApp</code> class.</p>
+ * <p>The <code>Movies.MovieCategory</code> enumeration provides movie categories and the associated
+ * string values for use with the <code>Movies.MovieApp</code> class.</p>
  *
  * @author David Ryan Alviola
  * @since 17 January 2017
@@ -16,7 +18,7 @@ public enum MovieCategory {
     private final String stringCategory;
 
     /**
-     * <p>Constructor for the <code>MovieCategory</code> enumeration.</p>
+     * <p>Constructor for the <code>Movies.MovieCategory</code> enumeration.</p>
      *
      * @param s a string value of the category
      */

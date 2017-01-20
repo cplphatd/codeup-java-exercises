@@ -1,6 +1,8 @@
+package RoshamboGame;
+
 /**
- * <p>The <code>RoshamboOpponentEasy</code> class is a subclass of the
- * <code>RoshamboPlayer</code> class. Behavior for the easy opponent are handled in this class.</p>
+ * <p>The <code>RoshamboGame.RoshamboOpponentEasy</code> class is a subclass of the
+ * <code>RoshamboGame.RoshamboPlayer</code> class. Behavior for the easy opponent are handled in this class.</p>
  *
  * @author David Ryan Alviola
  * @since 18 January 2017
@@ -17,9 +19,9 @@ public class RoshamboOpponentEasy extends RoshamboPlayer {
     }
 
     /**
-     * @return a <code>Roshambo</code> value of <code>ROCK</code>
+     * @return a <code>RoshamboGame.Roshambo</code> value of <code>ROCK</code>
      */
-    public Roshambo generateRoshambo() {
+    Roshambo generateRoshambo() {
         return Roshambo.ROCK;
     }
 }

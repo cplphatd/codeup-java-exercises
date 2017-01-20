@@ -1,6 +1,8 @@
+package RoshamboGame;
+
 /**
- * <p>The <code>Roshambo</code> enumeration provides moves and the associated string values
- * for use with the <code>RoshamboApp</code> class.</p>
+ * <p>The <code>RoshamboGame.Roshambo</code> enumeration provides moves and the associated string values
+ * for use with the <code>RoshamboGame.RoshamboApp</code> class.</p>
  *
  * @author David Ryan Alviola
  * @since 18 January 2017
@@ -13,7 +15,7 @@ public enum Roshambo {
     private final String selection;
 
     /**
-     * <p>Constructor for the <code>Roshambo</code> enumeration.</p>
+     * <p>Constructor for the <code>RoshamboGame.Roshambo</code> enumeration.</p>
      *
      * @param s a string value of the move
      */

@@ -1,9 +1,9 @@
+package RoshamboGame;
+
 import Alviola.Console;
 
-import java.util.Scanner;
-
 /**
- * <p>The <code>RoshamboApp</code> class allows the user to play the game of Roshambo (Rock, Paper, Scissors).
+ * <p>The <code>RoshamboGame.RoshamboApp</code> class allows the user to play the game of RoshamboGame.Roshambo (Rock, Paper, Scissors).
  * The player enters his/her name and chooses a difficulty. The player throws a move and it is compared to the
  * CPU move where the game will end in a win, loss, or draw. Wins and losses are tracked as long as the player
  * chooses to continue.</p>
@@ -17,7 +17,7 @@ public class RoshamboApp {
     static Console validator = new Console();
 
     /**
-     * <p>Main method for the <code>RoshamboApp</code> class.</p>
+     * <p>Main method for the <code>RoshamboGame.RoshamboApp</code> class.</p>
      *
      * @param args
      */
@@ -28,7 +28,7 @@ public class RoshamboApp {
         //Welcome screen
         displayTitle();
         System.out.println("---");
-        System.out.println("Welcome to Roshambo!");
+        System.out.println("Welcome to RoshamboGame.Roshambo!");
         System.out.println("---");
 
         //Create human player object

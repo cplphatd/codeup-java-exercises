@@ -1,5 +1,7 @@
+package Movies;
+
 /**
- * <p>The <code>Movie</code> class takes string values for movie title and category then creates
+ * <p>The <code>Movies.Movie</code> class takes string values for movie title and category then creates
  * an object with those properties.</p>
  *
  * @author David Ryan Alviola
@@ -11,7 +13,7 @@ public class Movie implements Comparable<Movie> {
     private String movieCategory;
 
     /**
-     * <p>Contstructor for <code>Movie</code> class.</p>
+     * <p>Contstructor for <code>Movies.Movie</code> class.</p>
      *
      * @param movieTitle string value for the title of the movie
      * @param movieCategory string value for the category of the movie

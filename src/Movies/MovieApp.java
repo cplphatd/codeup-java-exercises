@@ -1,12 +1,13 @@
+package Movies;
+
 import Alviola.Console;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 /**
- * <p>The <code>MovieApp</code> class prompts the user for an integer input corresponding to
+ * <p>The <code>Movies.MovieApp</code> class prompts the user for an integer input corresponding to
  * a movie category. The method then returns a list of movies belonging to the selected category that
  * is sorted alphabetically.</p>
  *
@@ -17,14 +18,14 @@ public class MovieApp {
     //Static variables
     private static MovieCategory movieCategory;
 
-    //Initialize MoviesIO
+    //Initialize Movies.MoviesIO
     private static MoviesIO moviesIO = new MoviesIO();
 
     //Create array list
     private static List<Movie> moviesList = new ArrayList<>();
 
     /**
-     * <p>Main method for the <code>MovieApp</code> class.</p>
+     * <p>Main method for the <code>Movies.MovieApp</code> class.</p>
      *
      * @param args
      */
@@ -40,7 +41,7 @@ public class MovieApp {
         populateMovieList();
         Collections.sort(moviesList);
 
-        System.out.println("Welcome to the Movie App!");
+        System.out.println("Welcome to the Movies.Movie App!");
 
         //Repeats if user chooses "y"
         do {
@@ -60,7 +61,7 @@ public class MovieApp {
 
             if (userAnswer.equalsIgnoreCase("n")) {
                 System.out.println("---");
-                System.out.println("Thanks for using the Movie App!");
+                System.out.println("Thanks for using the Movies.Movie App!");
             }
         } while (userAnswer.equalsIgnoreCase("y"));
     }
@@ -105,8 +106,8 @@ public class MovieApp {
     }
 
     /**
-     * <p>Takes a string value for the movie category then iterates through a list of <code>Movie</code>
-     * objects. If the category of the <code>Movie</code> object matches the desired category, the <code>Movie</code>
+     * <p>Takes a string value for the movie category then iterates through a list of <code>Movies.Movie</code>
+     * objects. If the category of the <code>Movies.Movie</code> object matches the desired category, the <code>Movies.Movie</code>
      * object title is printed.</p>
      *
      * @param stringMovieCategory string value of the movie category

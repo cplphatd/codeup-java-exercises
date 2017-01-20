@@ -1,10 +1,10 @@
-import Alviola.Console;
+package RoshamboGame;
 
-import java.util.Scanner;
+import Alviola.Console;
 
 /**
  * <p>The <code>RoshamboPlayerInput</code> class handles a majority of the player input methods
- * for a session of Roshambo.</p>
+ * for a session of RoshamboGame.Roshambo.</p>
  *
  * @author David Ryan Alviola
  * @since 18 January 2017
@@ -23,11 +23,11 @@ public class RoshamboPlayerHuman extends RoshamboPlayer{
     }
 
     /**
-     * <p>Displays Roshambo choices then prompts user for integer value representing choice.</p>
+     * <p>Displays RoshamboGame.Roshambo choices then prompts user for integer value representing choice.</p>
      *
-     * @return a Roshambo value corresponding to the chosen integer value
+     * @return a RoshamboGame.Roshambo value corresponding to the chosen integer value
      */
-    public Roshambo generateRoshambo () {
+    Roshambo generateRoshambo () {
         System.out.println("---");
         System.out.println("(1) Rock");
         System.out.println("(2) Paper");
@@ -41,7 +41,7 @@ public class RoshamboPlayerHuman extends RoshamboPlayer{
     /**
      * <p>Prompts the user for an integer value corresponding to the desired difficulty.</p>
      *
-     * @return a RoshamboPlayer subclass object corresponding to the chosen difficulty
+     * @return a RoshamboGame.RoshamboPlayer subclass object corresponding to the chosen difficulty
      */
     public RoshamboPlayer selectDifficulty () {
         System.out.println("---");
