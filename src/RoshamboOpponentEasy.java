@@ -7,6 +7,11 @@
  */
 public class RoshamboOpponentEasy extends RoshamboPlayer {
 
+    /**
+     * <p>Constructor</p>
+     *
+     * @param playerName string value of the player name
+     */
     public RoshamboOpponentEasy (String playerName) {
         super(playerName);
     }

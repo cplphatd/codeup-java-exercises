@@ -14,13 +14,10 @@ public class RoshamboPlayerHuman extends RoshamboPlayer{
     Console validator = new Console();
 
     /**
-     * <p>Prompts user for a string value of the player name and sets the value <code>playerName</code></p>
+     * <p>Constructor</p>
      *
+     * @param playerName string value of the player name
      */
-//    public void setPlayerName () {
-//        playerName = validator.getRequiredString("Please enter your name: ");
-//    }
-
     public RoshamboPlayerHuman (String playerName) {
         super(playerName);
     }

@@ -9,6 +9,11 @@ import java.util.Random;
  */
 public class RoshamboOpponentNormal extends RoshamboPlayer {
 
+    /**
+     * <p>Constructor</p>
+     *
+     * @param playerName string value of the player name
+     */
     public RoshamboOpponentNormal (String playerName) {
         super(playerName);
     }

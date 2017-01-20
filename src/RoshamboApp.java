@@ -24,7 +24,6 @@ public class RoshamboApp {
     public static void main(String[] args) {
         //Local Variables
         String userAnswer;
-        String playerName;
 
         //Welcome screen
         displayTitle();
@@ -54,6 +53,7 @@ public class RoshamboApp {
             //Show score
             showScore();
 
+            //Continue?
             System.out.println("---");
             userAnswer = validator.getChoiceString("Would you like to play again? (y/n) ", "y", "n");
             if (userAnswer.equalsIgnoreCase("n")) {
