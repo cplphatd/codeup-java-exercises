@@ -24,6 +24,7 @@ public class RoshamboApp {
     public static void main(String[] args) {
         //Local Variables
         String userAnswer;
+        String playerName;
 
         //Welcome screen
         displayTitle();
@@ -32,10 +33,7 @@ public class RoshamboApp {
         System.out.println("---");
 
         //Create human player object
-        RoshamboPlayerHuman roshamboPlayerHuman = new RoshamboPlayerHuman();
-
-        //Get player info
-        roshamboPlayerHuman.setPlayerName();
+        RoshamboPlayerHuman roshamboPlayerHuman = new RoshamboPlayerHuman(validator.getRequiredString("Please enter your name: "));
 
         //Repeats if user chooses "y"
         do {
@@ -46,16 +44,11 @@ public class RoshamboApp {
             String playerMove = roshamboPlayerHuman.generateRoshambo().toString();
 
             //Opponent move
-            String opponentMove = "";
-            if (opponent instanceof RoshamboOpponentEasy) {
-                opponentMove = ((RoshamboOpponentEasy) opponent).generateRoshambo().toString();
-            } else if (opponent instanceof  RoshamboOpponentNormal) {
-                opponentMove = ((RoshamboOpponentNormal) opponent).generateRoshambo().toString();
-            }
+            String opponentMove = opponent.generateRoshambo().toString();
 
             //Compare moves
             System.out.println("---");
-            System.out.println(roshamboPlayerHuman.playerName+ " threw: " + playerMove + ". CPU threw: " + opponentMove + ".");
+            System.out.println(roshamboPlayerHuman.getPlayerName()+ " threw: " + playerMove + ". " + opponent.getPlayerName() + " threw: " + opponentMove + ".");
             Roshambo.determineResult(playerMove, opponentMove);
 
             //Show score
@@ -65,7 +58,7 @@ public class RoshamboApp {
             userAnswer = validator.getChoiceString("Would you like to play again? (y/n) ", "y", "n");
             if (userAnswer.equalsIgnoreCase("n")) {
                 System.out.println("---");
-                System.out.println("Thanks for playing! See you later, " + roshamboPlayerHuman.playerName + ".");
+                System.out.println("Thanks for playing! See you later, " + roshamboPlayerHuman.getPlayerName() + ".");
             }
         } while (userAnswer.equalsIgnoreCase("y"));
     }

@@ -17,14 +17,7 @@ public abstract class RoshamboPlayer {
     /**
      * <p>Default constructor of <code>RoshamboPlayer</code> class for use by its subclasses.</p>
      */
-    protected RoshamboPlayer () {}
-
-    /**
-     * <p>Setter for <code>playerName</code> variable.</p>
-     *
-     * @param playerName string value of the player's name
-     */
-    public void setPlayerName(String playerName) {
+    protected RoshamboPlayer (String playerName) {
         this.playerName = playerName;
     }
 

@@ -13,15 +13,16 @@ public class RoshamboPlayerHuman extends RoshamboPlayer{
     //Initialize validator
     Console validator = new Console();
 
-    //Variables
-    String playerName;
-
     /**
      * <p>Prompts user for a string value of the player name and sets the value <code>playerName</code></p>
      *
      */
-    public void setPlayerName () {
-        playerName = validator.getRequiredString("Please enter your name: ");
+//    public void setPlayerName () {
+//        playerName = validator.getRequiredString("Please enter your name: ");
+//    }
+
+    public RoshamboPlayerHuman (String playerName) {
+        super(playerName);
     }
 
     /**
@@ -53,9 +54,9 @@ public class RoshamboPlayerHuman extends RoshamboPlayer{
         int difficulty = validator.getIntWithinRange("Please select your difficulty: ", 1, 2);
 
         if (difficulty == 1) {
-            return new RoshamboOpponentEasy();
+            return new RoshamboOpponentEasy("Rocky");
         } else {
-            return new RoshamboOpponentNormal();
+            return new RoshamboOpponentNormal("Apollo");
         }
     }
 }

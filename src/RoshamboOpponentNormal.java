@@ -9,6 +9,10 @@ import java.util.Random;
  */
 public class RoshamboOpponentNormal extends RoshamboPlayer {
 
+    public RoshamboOpponentNormal (String playerName) {
+        super(playerName);
+    }
+
     /**
      * <p>Takes in integer values for the minimum and maximum bounds and generates a random integer
      * within and including those values. The random integer is passed into the static <code>decodeRoshambo</code>

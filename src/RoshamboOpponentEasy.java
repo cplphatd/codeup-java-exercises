@@ -7,6 +7,10 @@
  */
 public class RoshamboOpponentEasy extends RoshamboPlayer {
 
+    public RoshamboOpponentEasy (String playerName) {
+        super(playerName);
+    }
+
     /**
      * @return a <code>Roshambo</code> value of <code>ROCK</code>
      */
