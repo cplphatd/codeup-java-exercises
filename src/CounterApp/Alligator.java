@@ -22,6 +22,6 @@ public class Alligator implements Countable {
     }
 
     public String getCountString () {
-        return alligatorCount + " alligator";
+        return getCount() + " alligator";
     }
 }

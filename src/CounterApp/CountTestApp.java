@@ -20,19 +20,18 @@ public class CountTestApp {
         System.out.println("Counting two sheep...");
         CountUtil.count(sheep, 2);
 
-        //Clone sheep object
+        //Clone sheep object (since .clone() returns an object, the result is casted to <code>Sheep</code>)
         Sheep clone = (Sheep) sheep.clone();
 
-        //Rename and reset clone counter
+        //Rename clone
         clone.setSheepName("Blanca");
-        clone.resetCount();
 
         //Count three clone objects
         System.out.println("---");
         System.out.println("Counting three clones...");
         CountUtil.count(clone, 3);
 
-        //Reset then count one sheep object
+        //Count one sheep object
         sheep.resetCount();
         System.out.println("---");
         System.out.println("Counting one sheep...");

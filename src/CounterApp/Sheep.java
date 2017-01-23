@@ -27,7 +27,7 @@ public class Sheep implements Countable, Cloneable{
     }
 
     public String getCountString () {
-        return sheepCounter + " " + sheepName;
+        return getCount() + " " + getSheepName();
     }
 
     public void setSheepName(String sheepName) {
@@ -38,7 +38,6 @@ public class Sheep implements Countable, Cloneable{
         return sheepName;
     }
 
-    @Override
     public Object clone () throws CloneNotSupportedException {
         return super.clone();
     }
