@@ -6,6 +6,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by David on 1/23/17.
@@ -13,6 +15,8 @@ import java.nio.file.Paths;
 public class CountriesTextFile implements FileIOInterface{
     private String fileName;
     private String directory;
+    private Path directoryPath;
+    private Path filePath;
 
     public CountriesTextFile (String directory, String fileName) {
         this.directory = directory;
@@ -20,20 +24,17 @@ public class CountriesTextFile implements FileIOInterface{
     }
 
     @Override
-    public Path setDirectoryPath(String directory) {
-        Path directoryPath = Paths.get(directory);
-        return directoryPath;
+    public void setDirectoryPath() {
+        this.directoryPath = Paths.get(directory);
     }
 
     @Override
-    public Path setFilePath(String fileName) {
-        Path filePath = Paths.get(directory, fileName);
-        return filePath;
+    public void setFilePath() {
+        this.filePath = Paths.get(directory, fileName);
     }
 
     @Override
-    public void addToFile(String s) throws IOException {
-        Path filePath = setFilePath(fileName);
+    public void addToFile(String countryName) throws IOException {
 
         checkPath();
 
@@ -41,7 +42,7 @@ public class CountriesTextFile implements FileIOInterface{
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         PrintWriter writer = new PrintWriter(bufferedWriter);
 
-        writer.println(s);
+        writer.println(countryName);
 
         writer.close();
         bufferedWriter.close();
@@ -50,7 +51,6 @@ public class CountriesTextFile implements FileIOInterface{
 
     @Override
     public void displayFile() throws IOException {
-        Path filePath = setFilePath(fileName);
 
         checkPath();
 
@@ -73,16 +73,52 @@ public class CountriesTextFile implements FileIOInterface{
 
     @Override
     public void checkPath() throws IOException {
-        Path directoryPath = setDirectoryPath(directory);
 
         if (Files.notExists(directoryPath)) {
             Files.createDirectories(directoryPath);
         }
 
-        Path filePath = setFilePath(fileName);
-
         if (Files.notExists(filePath)) {
             Files.createFile(filePath);
         }
+    }
+
+    @Override
+    public void deleteFromFile (String countryName) throws IOException{
+
+        checkPath();
+
+        List<String> countryList = storeFileLinesInArray();
+
+        FileWriter fileWriter = new FileWriter(filePath.toFile(), false);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        PrintWriter writer = new PrintWriter(bufferedWriter);
+
+        for (String country : countryList) {
+            if (!country.equalsIgnoreCase(countryName)) {
+                writer.println(country);
+            }
+        }
+
+        writer.close();
+        bufferedWriter.close();
+        fileWriter.close();
+    }
+
+    private List<String> storeFileLinesInArray () throws IOException {
+        FileReader fileReader = new FileReader(filePath.toFile());
+        BufferedReader reader = new BufferedReader(fileReader);
+
+        List<String> countryList = new ArrayList<>();
+        int i = 0;
+        String line = reader.readLine();
+
+        while (line != null) {
+            countryList.add(i, line);
+            i += 1;
+            line = reader.readLine();
+        }
+
+        return countryList;
     }
 }

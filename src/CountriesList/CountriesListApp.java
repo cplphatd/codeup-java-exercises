@@ -18,6 +18,10 @@ public class CountriesListApp {
     private static CountriesTextFile countriesTextFile = new CountriesTextFile("src/CountriesList", "countries.txt");
 
     public static void main(String[] args) throws IOException {
+        //Set directory path and file path
+        countriesTextFile.setDirectoryPath();
+        countriesTextFile.setFilePath();
+
         System.out.println("Welcome to the Countries List App!");
         System.out.println("---");
 
@@ -30,8 +34,9 @@ public class CountriesListApp {
     private static int getUserChoice () {
         System.out.println("(1) Display countries");
         System.out.println("(2) Add a new country");
-        System.out.println("(3) Exit");
-        return validator.getIntWithinRange("Enter your choice (1-3): ", 1, 3);
+        System.out.println("(3) Delete a country");
+        System.out.println("(4) Exit");
+        return validator.getIntWithinRange("Enter your choice (1-4): ", 1, 4);
     }
 
     private static void decodeUserChoice (int userChoice) throws IOException {
@@ -43,6 +48,9 @@ public class CountriesListApp {
                 countriesTextFile.addToFile(validator.getRequiredString("Enter the country name: "));
                 break;
             case 3:
+                countriesTextFile.deleteFromFile(validator.getRequiredString("Enter the country name: "));
+                break;
+            case 4:
                 repeat = false;
                 System.out.println("Goodbye! Thanks for using this app!");
                 break;
