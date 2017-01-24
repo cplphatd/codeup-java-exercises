@@ -18,4 +18,6 @@ public interface FileIOInterface {
     void checkPath () throws IOException;
 
     void deleteFromFile (String s) throws IOException;
+
+    void sortFile () throws IOException;
 }

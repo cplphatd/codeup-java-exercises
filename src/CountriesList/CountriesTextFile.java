@@ -7,12 +7,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by David on 1/23/17.
  */
-public class CountriesTextFile implements FileIOInterface{
+public class CountriesTextFile implements FileIOInterface {
     private String fileName;
     private String directory;
     private Path directoryPath;
@@ -21,6 +22,8 @@ public class CountriesTextFile implements FileIOInterface{
     public CountriesTextFile (String directory, String fileName) {
         this.directory = directory;
         this.fileName = fileName;
+        setDirectoryPath();
+        setFilePath();
     }
 
     @Override
@@ -65,8 +68,6 @@ public class CountriesTextFile implements FileIOInterface{
             line = reader.readLine();
         }
 
-        System.out.println("---");
-
         reader.close();
         fileReader.close();
     }
@@ -98,6 +99,25 @@ public class CountriesTextFile implements FileIOInterface{
             if (!country.equalsIgnoreCase(countryName)) {
                 writer.println(country);
             }
+        }
+
+        writer.close();
+        bufferedWriter.close();
+        fileWriter.close();
+    }
+
+    @Override
+    public void sortFile () throws IOException {
+        List<String> countriesList = storeFileLinesInArray();
+
+        Collections.sort(countriesList);
+
+        FileWriter fileWriter = new FileWriter(filePath.toFile());
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        PrintWriter writer = new PrintWriter(fileWriter);
+
+        for (String country : countriesList) {
+            writer.println(country);
         }
 
         writer.close();
