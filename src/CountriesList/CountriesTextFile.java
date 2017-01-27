@@ -91,7 +91,7 @@ public class CountriesTextFile implements FileIOInterface {
 
         List<String> countryList = storeFileLinesInArray();
 
-        FileWriter fileWriter = new FileWriter(filePath.toFile(), false);
+        FileWriter fileWriter = new FileWriter(filePath.toFile());
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         PrintWriter writer = new PrintWriter(bufferedWriter);
 
